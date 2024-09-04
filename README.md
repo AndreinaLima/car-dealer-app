@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Car Dealer App
 
-## Getting Started
+This is a car dealer application created with Next.js. The app allows users to filter vehicles by type and model year, and view the results on a separate page.
 
-First, run the development server:
+## Features
+
+- **Filter Page:** Allows users to select vehicle type and model year. The "Next" button is enabled only when both filters are selected.
+- **Results Page:** Displays vehicle models based on the selected type and year. Uses React Suspense to handle loading states.
+
+## Technologies Used
+
+- **Next.js:** React framework for server-side rendering and static site generation.
+- **Tailwind CSS:** CSS library for fast and responsive styling.
+- **React Suspense:** Manages loading states and asynchronous operations.
+
+## Setting Up the Environment
+
+### 1. Clone the Repository
+
+Clone the repository using the following command:
+
+```bash
+git clone https://github.com/your-username/repository-name.git
+cd repository-name
+```
+
+### 2. Install Dependencies
+
+Install the project dependencies with:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Configure Environment Variables
+
+Create a .env.local file at the root of the project and add the following environment variables:
+
+```plaintext
+NEXT_PUBLIC_API_MODELS_URL=https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear
+NEXT_PUBLIC_API_MAKES_URL=https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car
+```
+
+### 4. Run the Development Server
+
+Start the development server with:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 5. Build the Project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To build the project for production, use:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then, start the production server with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+# or
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+- /pages: Contains Next.js pages. Includes the main filter page and the results page.
+- /components: Contains reusable React components.
+- /styles: Contains global and custom styles using Tailwind CSS.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Styling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The project uses Tailwind CSS for styling. Tailwind classes are applied directly to components for modern and responsive design.
