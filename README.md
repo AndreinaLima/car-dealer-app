@@ -20,7 +20,7 @@ This is a car dealer application created with Next.js. The app allows users to f
 Clone the repository using the following command:
 
 ```bash
-git clone https://github.com/your-username/repository-name.git
+git clone https://github.com/AndreinaLima/car-dealer-app.git
 cd repository-name
 ```
 
