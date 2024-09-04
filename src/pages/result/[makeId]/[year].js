@@ -13,20 +13,22 @@ export async function getStaticProps({ params }) {
 
   console.log(process.env.NEXT_PUBLIC_API_MODELS_URL);
   console.log(process.env.NEXT_PUBLIC_API_MAKES_URL);
-  
+
   // Fetch models
   const resModels = await fetch(
-    `${process.env.NEXT_PUBLIC_API_MODELS_URL}/makeId/${makeId}/modelyear/${year}?format=json`
+    `${process.env.NEXT_PUBLIC_API_MODELS_URL}/makeId/${makeId}/modelyear/${year}?format=json`,
   );
   const dataModels = await resModels.json();
 
   // Fetch makes to get the make name
-  const resMakes = await fetch(`${process.env.NEXT_PUBLIC_API_MAKES_URL}?format=json`);
+  const resMakes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_MAKES_URL}?format=json`,
+  );
   const dataMakes = await resMakes.json();
 
   // Map makes to get make names
   const makes = dataMakes.Results;
-  const selectedMake = makes.find(make => make.MakeId === parseInt(makeId));
+  const selectedMake = makes.find((make) => make.MakeId === parseInt(makeId));
 
   return {
     props: {
@@ -38,17 +40,17 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const ResultPage = ({ models,makeName, year }) => {
+const ResultPage = ({ models, makeName, year }) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Carregando...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1 className="text-3xl font-bold mb-8">
-        Modelos de {makeName} do ano {year}
+        Models of {makeName} of year {year}
       </h1>
       <ul className="w-full max-w-md">
         {models.length > 0 ? (
@@ -58,9 +60,7 @@ const ResultPage = ({ models,makeName, year }) => {
             </li>
           ))
         ) : (
-          <li className="border-b border-gray-300 py-2">
-            Nenhum modelo encontrado
-          </li>
+          <li className="border-b border-gray-300 py-2">No models found</li>
         )}
       </ul>
     </div>

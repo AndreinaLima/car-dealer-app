@@ -10,9 +10,7 @@ const ModelList = ({ models }) => {
           </li>
         ))
       ) : (
-        <li className="border-b border-gray-300 py-2">
-          Nenhum modelo encontrado
-        </li>
+        <li className="border-b border-gray-300 py-2">No models found</li>
       )}
     </ul>
   );
