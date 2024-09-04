@@ -21,7 +21,7 @@ Clone the repository using the following command:
 
 ```bash
 git clone https://github.com/AndreinaLima/car-dealer-app.git
-cd repository-name
+cd car-dealer-app
 ```
 
 ### 2. Install Dependencies
